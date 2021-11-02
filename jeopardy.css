@@ -1,4 +1,32 @@
+body {
+	background-color: cornflowerblue;
+}
+
+h1 {
+	color: white;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+#restart {
+	text-align: center;
+	padding: 10px;
+	display: block;
+	margin: auto;
+	background-color: hotpink;
+	color: white;
+	font-weight: bold;
+	border-radius: 5px;
+	margin-bottom: 5px;
+	box-shadow: ivory;
+}
+
+#loader {
+	text-align: center;
+}
+
 #jeopardy {
+	margin: auto;
 	text-align: center;
 	font-size: 9pt;
 	background-color: #060ce9;
@@ -28,4 +56,8 @@ td {
 
 td:hover {
 	cursor: pointer;
+}
+
+.correct {
+	background-color: springgreen;
 }

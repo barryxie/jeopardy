@@ -1,6 +1,8 @@
 const BASE_API_URL = "https://jservice.io/";
 const totalCat = 6;
 const totalClues = 5;
+const loader = document.querySelector('#loader')
+const restartBtn = document.querySelector('#restart')
 
 // categories is the main data structure for the app; it looks like this:
 
@@ -132,8 +134,11 @@ function handleClick(e) {
             clue.showing = "question"
             
         } else if(clue.showing === "question"){
+            e.target.style.backgroundColor = 'green'
             show = clue.answer;
             clue.showing = "answer"
+        }else{
+            return
         }
         e.target.innerText = show
         
@@ -162,6 +167,11 @@ function hideLoadingView() {
  * */
 
 async function setupAndStart() {
+    restartBtn.innerText = "Restart Gamee"
+    const tableHead = document.querySelector('#jeopardy thead');
+    const tablebody = document.querySelector('#jeopardy tbody');
+    tableHead.innerHTML="";
+    tablebody.innerHTML="";
     showLoadingView()
     let catIds = await getCategoryIds();
     
@@ -175,9 +185,10 @@ async function setupAndStart() {
     hideLoadingView()
 }
 
+
+
 /** On click of start / restart button, set up game. */
-const loader = document.querySelector('#loader')
-const restartBtn = document.querySelector('#restart')
+
 restartBtn.addEventListener('click', setupAndStart)
 
 /** On page load, add event handler for clicking clues */
